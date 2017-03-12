@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="ARP.exe" version="1.0.0.4" publicKeyToken="5496b37be3acbeae" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="bird_128px_1206325_easyicon.net.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="ARP" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="ARP.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC 清单选项
+          如果要更改 Windows 用户帐户控制级别，请用以下节点之一替换
+          requestedExecutionLevel 节点。
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+          如果要利用文件和注册表虚拟化提供
+          向后兼容性，请删除 requestedExecutionLevel 节点。
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ARP.exe" size="215000">
+      <assemblyIdentity name="ARP" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>IInN7UCzwG7W5MautmNUiSd33PcifZc9sqSq7C3XJhA=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PacketDotNet.dll" size="196608">
+      <assemblyIdentity name="PacketDotNet" version="0.13.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>H/mpDwTG1ejOcY6yoEf5gMdAdUYueqG54XKz8blVvxU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SharpPcap.dll" size="72704">
+      <assemblyIdentity name="SharpPcap" version="4.2.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>koLMf7cKd0YuEY0gpQpcvtqG9vt3f83iqNTzi1ZWpZI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="ARP.exe.config" size="189">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>6N7MliNbVJSIAIPrecIshMbZ7zEoKLr5SQvud4LDUOw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="bird_128px_1206325_easyicon.net.ico" size="63950">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>BvZZg+BaDzGM/QujWLOnrC3lrFNtfkV4737TtImFTp0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="MINIUM_Network_128px_543782_easyicon.net.ico" size="63950">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>BvZZg+BaDzGM/QujWLOnrC3lrFNtfkV4737TtImFTp0=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=DESKTOP-IIMKB\24451" issuerKeyHash="b2338f2a7a651a66ad6d822ff9c12dc706cdc93d" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>GMLDTWqoafOleFpkjlF4a652E3CeIJGzd7nlsY31Cx8=</DigestValue></Reference></SignedInfo><SignatureValue>fTE8r73hm3HpNxsqpC2p6kVIBmUwEXEBEjBeVw/SC69Xs/X4Qwxq4CkzbEzn2gCJjNVnXQWFsXsMDqBEu+CQEQ1cF98fcxMHoqDo9gj1Er3ui9H2nd5vG9kMF5qfTyIJnCHNnceAXCOSVrxdeRjB7sVyqh+wpEXBw4csCkFK3x0=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>oY5q0WDIese1AStDY+s0n2MXcClbk/J5mScEuDLt4HbQPg4uwn/TPIZyV2PUMkK13bnlpAUVC8uoOdYJlN6Uy4K5E3XQ2W65zAt9O6cyXGdqY89foRHGOKAqJZ0skUy+G5+/ZDZoKfDckZH18j+i/P+PbzefT+WwvlYkIjoGxr8=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="1f0bf58db1e5b977b391209e701376ae6b78518e645a78a5f369a86a4dc3c218" Description="" Url=""><as:assemblyIdentity name="ARP.exe" version="1.0.0.4" publicKeyToken="5496b37be3acbeae" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-IIMKB\24451</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>Xwt0VZ3oIdbIAQ5c+qJ8mKXkhJVeV+yQzxrQX662e+8=</DigestValue></Reference></SignedInfo><SignatureValue>eH1oE6teV/W+K6kr0XkyxMoG31gzU2tXq+YWrf3Lwo58KO+GmE6KmW8AOkbNGcqlPVmF9xyweCGVer8dEzFMsgysloXHY0lSrFMGwnzvZUOz5jBZ8duUeR6TKE5lVYF+4or4YZj3bFijX50glPm7O3Zf2fztPzO3weB75XT7ogI=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>oY5q0WDIese1AStDY+s0n2MXcClbk/J5mScEuDLt4HbQPg4uwn/TPIZyV2PUMkK13bnlpAUVC8uoOdYJlN6Uy4K5E3XQ2W65zAt9O6cyXGdqY89foRHGOKAqJZ0skUy+G5+/ZDZoKfDckZH18j+i/P+PbzefT+WwvlYkIjoGxr8=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB5TCCAU6gAwIBAgIQUwmh0o5GDadAwd2bcD0vdTANBgkqhkiG9w0BAQsFADAxMS8wLQYDVQQDHiYARABFAFMASwBUAE8AUAAtAEkASQBNAEsAQgBcADIANAA0ADUAMTAeFw0xNzAzMDEwNTU4MTBaFw0xODAzMDExMTU4MTBaMDExLzAtBgNVBAMeJgBEAEUAUwBLAFQATwBQAC0ASQBJAE0ASwBCAFwAMgA0ADQANQAxMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQChjmrRYMh6x7UBK0Nj6zSfYxdwKVuT8nmZJwS4Mu3gdtA+Di7Cf9M8hnJXY9QyQrXdueWkBRULy6g51gmU3pTLgrkTddDZbrnMC307pzJcZ2pjz1+hEcY4oColnSyRTL4bn79kNmgp8NyRkfXyP6L8/49vN59P5bC+ViQiOgbGvwIDAQABMA0GCSqGSIb3DQEBCwUAA4GBADWmEG58zXnRTF8uXIQC/OUqDXRHfVYvjG70v+ceeXRdXNz+Nr6hbO5oMYb5GwmRUUlS8rh6Xt6i2JXf97A30PTXDGcjsNQJ1yqywvy+oSH2/Kaf944f7Fpo8SS/BPVDxR2JxNC8c2pnF58dg5dqFzBNik7gzkkKVawLXqMmzumb</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
