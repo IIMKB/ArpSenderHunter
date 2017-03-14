@@ -46,6 +46,9 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnHunter = new System.Windows.Forms.Button();
+            this.lbUserName = new System.Windows.Forms.Label();
+            this.lbMac = new System.Windows.Forms.Label();
+            this.lbLocalIP = new System.Windows.Forms.Label();
             this.grpbMssKind.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,7 +134,7 @@
             this.txtMACto.Name = "txtMACto";
             this.txtMACto.Size = new System.Drawing.Size(316, 25);
             this.txtMACto.TabIndex = 6;
-            this.txtMACto.Text = "20-30-40-10-FF-12";
+            this.txtMACto.Text = "FF-FF-FF-FF-FF-FF";
             this.txtMACto.TextChanged += new System.EventHandler(this.txtMACto_TextChanged);
             // 
             // txtIPto
@@ -252,11 +255,38 @@
             this.btnHunter.UseVisualStyleBackColor = true;
             this.btnHunter.Click += new System.EventHandler(this.btnHunter_Click);
             // 
+            // lbUserName
+            // 
+            this.lbUserName.AutoSize = true;
+            this.lbUserName.Location = new System.Drawing.Point(12, 490);
+            this.lbUserName.Name = "lbUserName";
+            this.lbUserName.Size = new System.Drawing.Size(0, 15);
+            this.lbUserName.TabIndex = 15;
+            // 
+            // lbMac
+            // 
+            this.lbMac.AutoSize = true;
+            this.lbMac.Location = new System.Drawing.Point(319, 490);
+            this.lbMac.Name = "lbMac";
+            this.lbMac.Size = new System.Drawing.Size(0, 15);
+            this.lbMac.TabIndex = 16;
+            // 
+            // lbLocalIP
+            // 
+            this.lbLocalIP.AutoSize = true;
+            this.lbLocalIP.Location = new System.Drawing.Point(633, 490);
+            this.lbLocalIP.Name = "lbLocalIP";
+            this.lbLocalIP.Size = new System.Drawing.Size(0, 15);
+            this.lbLocalIP.TabIndex = 17;
+            // 
             // ARP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1222, 514);
+            this.Controls.Add(this.lbLocalIP);
+            this.Controls.Add(this.lbMac);
+            this.Controls.Add(this.lbUserName);
             this.Controls.Add(this.btnHunter);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnExit);
@@ -304,6 +334,9 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnHunter;
+        private System.Windows.Forms.Label lbUserName;
+        private System.Windows.Forms.Label lbMac;
+        private System.Windows.Forms.Label lbLocalIP;
     }
 }
 

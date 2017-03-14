@@ -14,6 +14,8 @@ using ARP;
 using System.Text.RegularExpressions;
 using System.Net;
 using System.Diagnostics;
+using System.IO;
+using System.Net.NetworkInformation;
 
 namespace ARP
 {
@@ -55,11 +57,165 @@ namespace ARP
             InitializeComponent();
             
         }
-
+        /// <summary>  
+        /// 操作系统的登录用户名  
+        /// </summary>  
+        /// <returns>系统的登录用户名</returns>  
+        public static string GetUserName()
+        {
+            try
+            {
+                string strUserName = string.Empty;
+                ManagementClass mc = new ManagementClass("Win32_ComputerSystem");
+                ManagementObjectCollection moc = mc.GetInstances();
+                foreach (ManagementObject mo in moc)
+                {
+                    strUserName = mo["UserName"].ToString();
+                }
+                moc = null;
+                mc = null;
+                return strUserName;
+            }
+            catch
+            {
+                return "unknown";
+            }
+        }
+        /// <summary>  
+        /// 获取本机MAC地址  
+        /// </summary>  
+        /// <returns>本机MAC地址</returns>  
+        public static string GetMacAddress()
+        {
+            try
+            {
+                string strMac = string.Empty;
+                ManagementClass mc = new ManagementClass("Win32_NetworkAdapterConfiguration");
+                ManagementObjectCollection moc = mc.GetInstances();
+                foreach (ManagementObject mo in moc)
+                {
+                    if ((bool)mo["IPEnabled"] == true)
+                    {
+                        strMac = mo["MacAddress"].ToString();
+                    }
+                }
+                moc = null;
+                mc = null;
+                return strMac;
+            }
+            catch
+            {
+                return "unknown";
+            }
+        }
+        /// <summary>  
+        /// 获取客户端内网IPv4地址  
+        /// </summary>  
+        /// <returns>客户端内网IPv4地址</returns>  
+        public static string GetClientLocalIPv4Address()
+        {
+            string strLocalIP = string.Empty;
+            try
+            {
+                IPHostEntry ipHost = Dns.Resolve(Dns.GetHostName());
+                IPAddress ipAddress = ipHost.AddressList[0];
+                strLocalIP = ipAddress.ToString();
+                return strLocalIP;
+            }
+            catch
+            {
+                return "unknown";
+            }
+        }
+        /// 尝试Ping指定IP是否能够Ping通      
+        /// <param name="strIP">指定IP</param>
+        /// <returns>true 是 false 否</returns>
+        public static bool IsPingIP(string strIP)
+        {
+            try
+            {
+                Ping ping = new Ping();
+                //接受Ping返回值
+                PingReply reply = ping.Send(strIP, 1000);
+                //Ping通
+                return true;
+            }
+            catch
+            {
+                //Ping失败
+                return false;
+            }
+        }
+        private string GetGateway()
+        {
+            string strGateway = "";
+            //获取所有网卡
+            NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+            //遍历数组
+            foreach (var netWork in nics)
+            {
+                //单个网卡的IP对象
+                IPInterfaceProperties ip = netWork.GetIPProperties();
+                //获取该IP对象的网关
+                GatewayIPAddressInformationCollection gateways = ip.GatewayAddresses;
+                foreach (var gateWay in gateways)
+                {
+                    //如果能够Ping通网关
+                    if (IsPingIP(gateWay.Address.ToString()))
+                    {
+                        //得到网关地址
+                        strGateway = gateWay.Address.ToString();
+                        //跳出循环
+                        break;
+                    }
+                }
+                //如果已经得到网关地址
+                if (strGateway.Length > 0)
+                {
+                    break;
+                }
+            }
+            return strGateway;
+        }
+        //// 得到本机IP      ipv6
+        //private string GetLocalIP()
+        //{
+        //    //本机IP地址
+        //    string strLocalIP = "";
+        //    //得到计算机名
+        //    string strPcName = Dns.GetHostName();
+        //    //得到本机IP地址数组
+        //    IPHostEntry ipEntry = Dns.GetHostEntry(strPcName);
+        //    //遍历数组
+        //    foreach (var IPadd in ipEntry.AddressList)
+        //    { IPAddress ip;
+                
+        //        //判断当前字符串是否为正确IP地址
+        //        if (IPAddress.TryParse(IPadd.ToString(), out ip))
+        //        {
+        //            //得到本地IP地址
+        //            strLocalIP = IPadd.ToString();
+        //            break;
+        //        }
+        //    }
+        //    return strLocalIP;
+        //}
         private void cmbNetCard_SelectedIndexChanged(object sender, EventArgs e)
         {
             int i = cmbNetCard.SelectedIndex;
+            LibPcapLiveDeviceList.Instance[i].Open();
             textBox1.AppendText("当前网络设备："+ LibPcapLiveDeviceList.Instance[i].Name + "\r\n");
+            
+            String macFrom = LibPcapLiveDeviceList.Instance[i].MacAddress.ToString();
+            for(int index=2;index<17;index+=2)
+            {
+                macFrom = macFrom.Insert(index,"-");
+                index++;
+            }
+            txtMACfrom.Text = macFrom;
+            String localMac = GetMacAddress().Replace(':','-');
+          
+            lbMac.Text = "本机当前mac地址:" + localMac;
         }
 
         private void ARP_Load(object sender, EventArgs e)
@@ -72,6 +228,9 @@ namespace ARP
                 return;
             }
             cmbNetCard.DataSource = devices;
+            lbUserName.Text ="本机当前用户:"+ GetUserName();
+            txtIPfrom.Text = GetClientLocalIPv4Address();
+            lbLocalIP.Text = "本机当前IP:"+GetClientLocalIPv4Address()+"      默认网关地址:"+GetGateway();
             
         }
 
